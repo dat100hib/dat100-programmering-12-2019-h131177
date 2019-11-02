@@ -6,31 +6,40 @@ import no.hvl.dat100.jplab12.common.TODO;
 public class Tekst extends Innlegg {
 
 	// TODO: objektvariable 
+	private String tekst;
 	
 	public Tekst () {
 		
 	}
 	
 	public Tekst(int id, String bruker, String dato, String tekst) {
-		throw new UnsupportedOperationException(TODO.constructor("Tekst"));
+		super(id, bruker, dato);
+		this.tekst = tekst;
+		//throw new UnsupportedOperationException(TODO.constructor("Tekst"));
 	}
 	
 	public Tekst(int id, String bruker, String dato, int likes, String tekst) {
-		throw new UnsupportedOperationException(TODO.constructor("Tekst"));
+		super(id, bruker, dato, likes);
+		this.tekst = tekst;
+		//throw new UnsupportedOperationException(TODO.constructor("Tekst"));
 	}
 	
 	public String getTekst() {
-		throw new UnsupportedOperationException(TODO.method());
+		return this.tekst;
+		//throw new UnsupportedOperationException(TODO.method());
 
 	}
 
 	public void setTekst(String tekst) {
-		throw new UnsupportedOperationException(TODO.method());
+		this.tekst = tekst;
+		//throw new UnsupportedOperationException(TODO.method());
 	}
 
 	@Override
 	public String toString() {
-		throw new UnsupportedOperationException(TODO.method());
+		return "TEKST\n" + getId() + "\n" + getBruker() + "\n" +
+				getDato() + "\n" + getLikes() + "\n" + tekst + "\n";
+		//throw new UnsupportedOperationException(TODO.method());
 
 	}
 	
