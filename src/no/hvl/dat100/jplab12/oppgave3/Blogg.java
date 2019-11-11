@@ -2,49 +2,96 @@ package no.hvl.dat100.jplab12.oppgave3;
 
 import no.hvl.dat100.jplab12.common.TODO;
 import no.hvl.dat100.jplab12.oppgave1.*;
+import no.hvl.dat100.jplab12.oppgave2.Bilde;
+import no.hvl.dat100.jplab12.oppgave2.Tekst;
 
 public class Blogg {
 
 	// TODO: objektvariable 
+	private Innlegg[] innleggtabell;
+	private int nesteLedig;
 
 	public Blogg() {
-		throw new UnsupportedOperationException(TODO.constructor("Blogg"));
+		this.innleggtabell = new Innlegg[20];
+		this.nesteLedig = 0;
+		//throw new UnsupportedOperationException(TODO.constructor("Blogg"));
 	}
 
 	public Blogg(int lengde) {
-		throw new UnsupportedOperationException(TODO.constructor("Blogg"));
+		this.innleggtabell = new Innlegg[lengde];
+		this.nesteLedig = 0;
+		//throw new UnsupportedOperationException(TODO.constructor("Blogg"));
 	}
 
 	public int getAntall() {
-		throw new UnsupportedOperationException(TODO.method());
+		return this.nesteLedig;
+		//throw new UnsupportedOperationException(TODO.method());
 	}
 	
 	public Innlegg[] getSamling() {
-		throw new UnsupportedOperationException(TODO.method());
+		return this.innleggtabell;
+		//throw new UnsupportedOperationException(TODO.method());
 
 	}
 	
 	public int finnInnlegg(Innlegg innlegg) {
-
-		throw new UnsupportedOperationException(TODO.method());
+		int i = -1;
+		int teller = 0;
+		while(teller < nesteLedig) {
+			if(innleggtabell[teller].erLik(innlegg)) {
+				return teller;
+			}
+			teller++;
+		}
+		return i;
+		//throw new UnsupportedOperationException(TODO.method());
 	}
 
 	public boolean finnes(Innlegg innlegg) {
-		throw new UnsupportedOperationException(TODO.method());
+		boolean funnet = false;
+		int teller = 0;
+		while(teller < nesteLedig) {
+			if(innleggtabell[teller].erLik(innlegg)) {
+				return true;
+			}
+			teller++;
+		}
+		return funnet;
+		//throw new UnsupportedOperationException(TODO.method());
 	}
 
 	public boolean ledigPlass() {
-		throw new UnsupportedOperationException(TODO.method());
+		if(nesteLedig < innleggtabell.length) {
+			return true;
+		}
+		return false;
+		//throw new UnsupportedOperationException(TODO.method());
 
 	}
 	
 	public boolean leggTil(Innlegg innlegg) {
-
-		throw new UnsupportedOperationException(TODO.method());
+		if(!finnes(innlegg)) {
+			innleggtabell[nesteLedig] = innlegg;
+			nesteLedig++;
+			return true;
+		}
+		return false;
+		//throw new UnsupportedOperationException(TODO.method());
 	}
 	
 	public String toString() {
-		throw new UnsupportedOperationException(TODO.method());
+		String streng = (nesteLedig) + "\n";
+		for(int i = 0; i < innleggtabell.length; i++) {
+			/*
+			if(innleggtabell[i] instanceof Tekst) {
+				streng += innleggtabell[i].toString();
+			} else if(innleggtabell[i] instanceof Bilde) {
+				
+			}*/
+			streng += innleggtabell[i].toString();
+		}
+		return streng;
+		//throw new UnsupportedOperationException(TODO.method());
 	}
 
 	// valgfrie oppgaver nedenfor
